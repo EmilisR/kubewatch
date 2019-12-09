@@ -66,8 +66,6 @@ func (s *Slack) Init(c *config.Config) error {
 	if channel == "" {
 		channel = os.Getenv("KW_SLACK_CHANNEL")
 	}
-
-	log.Printf("Token: %s, channel: %s", token, channel)
 	
 	s.Token = token
 	s.Channel = channel
@@ -114,6 +112,7 @@ func (s *Slack) TestHandler() {
 }
 
 func notifySlack(s *Slack, obj interface{}, action string) {
+	log.Printf("Token: %s, channel: %s, action: %s", s.Token, s.Channel, action)
 	e := kbEvent.New(obj, action)
 	api := slack.New(s.Token)
 	params := slack.PostMessageParameters{}
