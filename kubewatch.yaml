@@ -7,7 +7,7 @@ spec:
   serviceAccount: kubewatch-user
   serviceAccountName: kubewatch-user
   containers:
-  - image: dockregdev.post.lt/updv/kubewatch:1.0.12
+  - image: dockregdev.post.lt/updv/kubewatch:1.0.14
     imagePullPolicy: Always
     name: kubewatch
     securityContext:
