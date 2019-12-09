@@ -67,6 +67,8 @@ func (s *Slack) Init(c *config.Config) error {
 		channel = os.Getenv("KW_SLACK_CHANNEL")
 	}
 
+	log.Printf("Token: %s, channel: %s", token, channel)
+	
 	s.Token = token
 	s.Channel = channel
 
