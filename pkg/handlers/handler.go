@@ -17,13 +17,13 @@ limitations under the License.
 package handlers
 
 import (
-	"github.com/bitnami-labs/kubewatch/config"
-	"github.com/bitnami-labs/kubewatch/pkg/handlers/flock"
-	"github.com/bitnami-labs/kubewatch/pkg/handlers/hipchat"
-	"github.com/bitnami-labs/kubewatch/pkg/handlers/mattermost"
-	"github.com/bitnami-labs/kubewatch/pkg/handlers/msteam"
-	"github.com/bitnami-labs/kubewatch/pkg/handlers/slack"
-	"github.com/bitnami-labs/kubewatch/pkg/handlers/webhook"
+	"github.com/emilisr/kubewatch/config"
+	"github.com/emilisr/kubewatch/pkg/handlers/flock"
+	"github.com/emilisr/kubewatch/pkg/handlers/hipchat"
+	"github.com/emilisr/kubewatch/pkg/handlers/mattermost"
+	"github.com/emilisr/kubewatch/pkg/handlers/msteam"
+	"github.com/emilisr/kubewatch/pkg/handlers/slack"
+	"github.com/emilisr/kubewatch/pkg/handlers/webhook"
 )
 
 // Handler is implemented by any handler.
