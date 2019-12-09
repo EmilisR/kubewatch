@@ -2,23 +2,29 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: kubewatch
-  namespace: default
+  namespace: updv
 spec:
+  serviceAccount: kubewatch-user
+  serviceAccountName: kubewatch-user
   containers:
-  - image: tuna/kubewatch:v0.0.1
+  - image: bitnami/kubewatch
     imagePullPolicy: Always
     name: kubewatch
+    securityContext:
+      privileged: true
     volumeMounts:
     - name: config-volume
       mountPath: /root
-  - image: gcr.io/skippbox/kubectl:v1.3.0
-    args:
-      - proxy
-      - "-p"
-      - "8080"
-    name: proxy
-    imagePullPolicy: Always
+    env:
+    # - name: KW_SLACK_CHANNEL
+    #   value: '#kube_notify_updv_dev'
+    # - name: KW_SLACK_TOKEN
+    #   value: 'xoxb-316999150034-619470578003-upKcWSnkDQYnRPw4KwUXZqGZ'
+    - name: KW_CONFIG
+      value: '/root'
   restartPolicy: Always
+  nodeSelector:
+    beta.kubernetes.io/os: linux
   volumes:
   - name: config-volume
     configMap:

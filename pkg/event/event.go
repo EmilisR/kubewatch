@@ -110,8 +110,9 @@ func (e *Event) Message() (msg string) {
 		)
 	default:
 		msg = fmt.Sprintf(
-			"A `%s` in namespace `%s` has been `%s`:\n`%s`",
+			"A `%s` with status `%s` in namespace `%s` has been `%s`:\n`%s`",
 			e.Kind,
+			e.Status,
 			e.Namespace,
 			e.Reason,
 			e.Name,
